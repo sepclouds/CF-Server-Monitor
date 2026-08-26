@@ -887,16 +887,20 @@ export async function checkOfflineNodes(db) {
     }
 
     if (recoveredNodes.length > 0) {
-      const nodeList = recoveredNodes.map(n => n.name).join('\n');
-      const msg = nodeList;
-      await sendNotification(siteSettings, msg, {
-        event: '恢复通知',
-        emoji: '✅',
-        clients: recoveredNodes.map(n => n.name),
-        count: recoveredNodes.length,
-        message: nodeList
-      });
-    }
+  const nodeList = recoveredNodes
+    .map(n => `${n.name}  ${formatLastReportTime(n.lastReportTime, siteSettings)}`)
+    .join('\n');
+
+  const msg = nodeList;
+
+  await sendNotification(siteSettings, msg, {
+    event: '恢复通知',
+    emoji: '✅',
+    clients: recoveredNodes.map(n => n.name),
+    count: recoveredNodes.length,
+    message: nodeList
+  });
+}
   } catch (e) {
     console.error('离线检测失败:', e);
   }
