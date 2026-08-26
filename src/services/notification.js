@@ -68,7 +68,7 @@ function formatNotificationTime(timestamp = Date.now(), settings = {}) {
 }
 
 function formatLastReportTime(timestamp, settings = {}) {
-  if (!timestamp) return '无上报记录';
+  if (!timestamp) return 'no reporting record';
 
   return formatNotificationTime(timestamp, settings);
 }
