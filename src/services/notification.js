@@ -874,8 +874,8 @@ export async function checkOfflineNodes(db) {
 
     if (offlineNodes.length > 0) {
       const nodeList = offlineNodes
-        .map(n => `${n.name}  最后上报: ${formatLastReportTime(n.lastReportTime, siteSettings)}`)
-        .join('\n');
+  .map(n => `${n.name}  ${formatLastReportTime(n.lastReportTime, siteSettings)}`)
+  .join('\n');
       const msg = nodeList;
       await sendNotification(siteSettings, msg, {
         event: '离线告警',
