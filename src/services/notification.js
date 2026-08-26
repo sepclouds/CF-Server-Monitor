@@ -878,7 +878,7 @@ export async function checkOfflineNodes(db) {
         .join('\n');
       const msg = nodeList;
       await sendNotification(siteSettings, msg, {
-        event: '节点离线告警',
+        event: '离线告警',
         emoji: '❌',
         clients: offlineNodes.map(n => n.name),
         count: offlineNodes.length,
@@ -890,7 +890,7 @@ export async function checkOfflineNodes(db) {
       const nodeList = recoveredNodes.map(n => n.name).join('\n');
       const msg = nodeList;
       await sendNotification(siteSettings, msg, {
-        event: '节点恢复通知',
+        event: '恢复通知',
         emoji: '✅',
         clients: recoveredNodes.map(n => n.name),
         count: recoveredNodes.length,
