@@ -31,7 +31,7 @@ const RESOURCE_ALERT_STATE_RECOVERED = 'recovered';
 const RESOURCE_ALERT_STATE_KEY = 'resource_alert_state';
 const DAY_MS = 24 * 60 * 60 * 1000;
 
-function getZonedDateParts(timestamp = Date.now(), timezone = 'UTC') {
+function getZonedDateParts(timestamp = Date.now(), timezone = 'Asia/Shanghai') {
   const date = new Date(timestamp);
   if (Number.isNaN(date.getTime())) return null;
   const timeZone = normalizeNotificationTimezone(timezone);
